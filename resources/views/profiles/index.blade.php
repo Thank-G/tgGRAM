@@ -7,10 +7,10 @@
            <img src="../images/logo2.png">
         </div>
         <div class="col-9 pt-5">
-            @foreach ($users as $user)
+            {{-- @foreach ($users as $user) --}}
             <div class="d-flex justify-content-between align-items-baseline">
                 <h1>{{ $user->username }}</h1>
-                <a href="#">Add New Post</a>
+                <a href="/p/create">Add New Post</a>
             </div>
             <div class="d-flex">
                 <div class="pr-3"><strong>37</strong>Posts</div>
@@ -20,11 +20,16 @@
             <div class="pt-4 font-weith-bold"><strong>{{ $user->profile->title }}</strong></div>
             <div>{{ $user->profile->description }}</div>
             <div><a href="">{{ $user->profile->url }}</a></div>
-            @endforeach
+            {{-- @endforeach --}}
         </div>
     </div>
     <div class="row pt-5">
-        <div class="col-4">
+        {{-- @foreach ($users as $user)
+            <div class="col-4">
+                <img src="public/storage/{{ $post->image }}" class="w-100">
+            </div>
+        {{-- @endforeach --}}
+    <div class="col-4">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT6Bk8eP67PcjsNud0ORe6UC_L-yMa9jkNdOtl19oj373Y2qyPC" class="w-100">
         </div>
         <div class="col-4">

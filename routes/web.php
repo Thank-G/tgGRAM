@@ -11,14 +11,15 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
 Route::get('/p/create', 'PostsController@create');
+Route::post('/p', 'PostsController@store');
 
-Route::get('/', 'ProfilesController@index');
+// Route::get('/', 'ProfilesController@index');
 
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
