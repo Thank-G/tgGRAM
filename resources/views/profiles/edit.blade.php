@@ -2,40 +2,70 @@
 
 @section('content')
 <div class="container">
-    <div class="container"> 
-        <div class="row">
-            <div class="col-3 pt-5">
-                <img src="../images/logo2.png">
+    <form action="/profile/{{ $user->id }}" enctype="multipart/form-data" method="post">
+    @csrf
+    @method ('PATCH')
+    <div class="row">
+        <div class="col-8 offset-2">
+            <div class="row pt-3">
+                <h3> <strong>Edit Profile</strong></h3>
             </div>
-            <div class="col-9 pt-5">
-                {{-- @foreach ($user as $user) --}}
-                <div class="d-flex justify-content-between align-items-baseline">
-                    <h1>{{ $user->username }}</h1>
-                    <a href="/p/create">Add New Post</a>
-                </div>
+            <div class="form-group row">
+                <label for="title" class="col-md-4 col-form-label">Title</label>
+                <input id="title"
+                type="text"
+                class="form-control @error('title') is-invalid @enderror"
+                name="title"
+                value="{{ old('title') ?? $user->profile->title }}"
+                autocomplete="title" autofocus>
+                @error('title')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
 
-                <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+            <div class="form-group row">
+                <label for="description" class="col-md-4 col-form-label">Description</label>
+                <input id="description"
+                type="text"
+                class="form-control @error('description') is-invalid @enderror"
+                name="description"
+                value="{{ old('description') ?? $user->profile->description }}"
+                autocomplete="description" autofocus>
+                @error('description')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
 
-                <div class="d-flex">
-                <div class="pr-3"><strong>{{ $user->posts->count() }}</strong>Posts</div>
-                    <div class="pr-3"><strong>4k</strong>Followers</div>
-                    <div class="pr-3"><strong>96</strong>Following</div>
-                </div>
-                <div class="pt-4 font-weith-bold"><strong>{{ $user->profile->title }}</strong></div>
-                <div>{{ $user->profile->description }}</div>
-                <div><a href="">{{ $user->profile->url }}</a></div>
-                {{-- @endforeach --}}
+            <div class="form-group row">
+                <label for="url" class="col-md-4 col-form-label">URL</label>
+                <input id="url"
+                type="text"
+                class="form-control @error('url') is-invalid @enderror"
+                name="url"
+                value="{{ old('url') ?? $user->profile->url }}"
+                autocomplete="url" autofocus>
+                @error('url')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+            <div class="row">
+                <label for="image" class="col-md-4 col-form-label">Profile Image</label>
+                <input type="file" class="form-control-file" id="image" name="image">
+                @error('image')
+                    <strong>{{ $message }}</strong>
+                @enderror
+            </div>
+            <div class="row pt-4">
+                <button class="btn btn-primary">Save Profile</button>
             </div>
         </div>
-        <div class="row pt-5">
-            @foreach ($user->posts as $post)
-                <div class="col-4 pb-4">
-                    <a href="/p/{{$post->id}}">
-                        <img src="/storage/{{ $post->image }}" class="w-100">
-                    </a>
-                </div>
-            @endforeach
-        </div>
-    </div>
+    </form>
 </div>
 @endsection
