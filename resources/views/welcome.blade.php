@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
 
         <!-- Styles -->
         <style>
@@ -79,21 +80,35 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    tgGRAM
-                </div>
+        <div class="container">
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+            <div class="content">
+                    <div class="title m-b-md">
+                        <h4>Welcome to <span class="typed-words"></span></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 pt-5">
+                    <img src="../images/logo2.png"><br>
                 </div>
             </div>
         </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+        <script>
+            var typed = new Typed('.typed-words', {
+            strings: [" tgGRAM "],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 5000,
+            startDelay: 200,
+            loop: true,
+            showCursor: false
+            });
+        </script>
+
     </body>
 </html>
